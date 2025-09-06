@@ -11,3 +11,33 @@ In GUI libraries, different platforms (Windows, Mac, Linux) may require differen
 • Logging:
 
 Depending on the logging requirements (e.g., logging to a file, console, or database), a factory can create the correct type of logger, allowing different components of the system to use the logger without knowing its exact implementation. 
+
+
+## UML Diagram
+
+```mermaid
+classDiagram
+    class Vehicle {
+      +start()
+      +stop()
+    }
+    class Car {
+      +start()
+      +stop()
+    }
+    class Truck {
+      +start()
+      +stop()
+    }
+    class Bike {
+      +start()
+      +stop()
+    }
+    class VehicleFactory {
+      +getVehicle(String) Vehicle
+    }
+
+    Vehicle <|.. Car
+    Vehicle <|.. Truck
+    Vehicle <|.. Bike
+    VehicleFactory ..> Vehicle
