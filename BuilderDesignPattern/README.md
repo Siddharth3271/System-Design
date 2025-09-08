@@ -23,21 +23,26 @@ When building user profiles in apps, where there are multiple options (name, ema
 
 ### Explanation of the Diagram:
 
-1. Car Class: 
+1. Newcar Class: 
 
 - Contains the attributes (engine, wheels, seats, color, sunroof, navigationSystem) and methods to retrieve them.
-- The Car constructor is private, ensuring it is created only through the CarBuilder.
+- The Newcar constructor is private, ensuring it is created only through the CarBuilder.
 
 2. CarBuilder Class: 
 
-- Has the same attributes as Car, but they are mutable, and it allows setting these attributes via builder methods.
-- The build() method is used to create a Car object by passing the builder as a parameter to the Car constructor.
+- Has the same attributes as Newcar, but they are mutable, and it allows setting these attributes via builder methods.
+- The build() method is used to create a Newcar object by passing the builder as a parameter to the Newcar constructor.
 
 Relationships: 
 
-- The CarBuilder is used by Car to construct a Car object, and the CarBuilder class returns a Car instance using the build() method.
-- The CarBuilder class is nested inside the Car class.
+- The CarBuilder is used by Newcar to construct a Newcar object, and the CarBuilder class returns a Newcar instance using the build() method.
+- The CarBuilder class is nested inside the Newcar class.
 
+### What if we only want to set some attributes?
 
-‍
+With the Builder pattern, you can only set the attributes you care about, and the rest of the attributes will take default values.
+For example, if the client doesn’t care about the sunroof or navigation system, they can skip those methods, and the car will be created with default values for those fields.
 
+‍### What if I want to add new attributes in the future?
+
+The Builder pattern makes this easy. You can simply add a new setter method to the builder class. No need to change the client code or the rest of the builder methods. For instance, you could add a "sportsSeats" feature later by adding one line in the CarBuilder class, and the client doesn’t have to modify their existing code.
