@@ -43,6 +43,6 @@ Relationships:
 With the Builder pattern, you can only set the attributes you care about, and the rest of the attributes will take default values.
 For example, if the client doesn’t care about the sunroof or navigation system, they can skip those methods, and the car will be created with default values for those fields.
 
-‍### What if I want to add new attributes in the future?
+‍**What if I want to add new attributes in the future?**
 
 The Builder pattern makes this easy. You can simply add a new setter method to the builder class. No need to change the client code or the rest of the builder methods. For instance, you could add a "sportsSeats" feature later by adding one line in the CarBuilder class, and the client doesn’t have to modify their existing code.
